@@ -1,0 +1,40 @@
+# GET - Listar todas as pessoas (pode digitar no navegador)
+http://localhost:8080/api/api.php/pessoas/
+
+# GET - Buscar uma pessoa por ID (pode digitar no navegador)
+http://localhost:8080/api/api.php/pessoas/1
+
+# POST - Criar uma pessoa (cole no console do navegador ou use no Postman)
+fetch('http://localhost:8080/api/api.php/pessoas', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    nome: "Maria",
+    fone: "11999999999",
+    email: "maria@exemplo.com",
+    avatar: "avatar.jpg"
+  })
+})
+.then(r => r.json())
+.then(console.log);
+
+# PUT - Editar uma pessoa (cole no console do navegador ou use no Postman; troque o 1 pelo ID)
+fetch('http://localhost:8080/api/api.php/pessoas/1', {
+  method: 'PUT',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    nome: "Maria Editada",
+    fone: "11888888888",
+    email: "mariaeditada@exemplo.com",
+    avatar: "avatar2.jpg"
+  })
+})
+.then(r => r.json())
+.then(console.log);
+
+# DELETE - Excluir uma pessoa (cole no console do navegador ou use no Postman; troque o 1 pelo ID)
+fetch('http://localhost:8080/api/api.php/pessoas/1', {
+  method: 'DELETE'
+})
+.then(r => r.json())
+.then(console.log);
